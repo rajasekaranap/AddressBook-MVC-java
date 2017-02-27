@@ -47,9 +47,16 @@ public class AddressBookMainGUI {
         frame = new JFrame("Address Book");
         frame.getContentPane().setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setLocationRelativeTo(null);
         frame.setSize(500, 500);
+        //frame.pack();
+        frame.setLocationRelativeTo(null);
+        //frame.setSize(500, 500);
+      //  frame.pack();
         frame.setVisible(true);
+     //   frame.pack();
+        //frame.setVisible(true);
+       // frame.setLocationRelativeTo(null);
+         //frame.setVisible(true);
         
         
         contactListPanel=new NameListPanel();

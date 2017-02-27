@@ -4,6 +4,7 @@
  */
 package mvc.views;
 
+import java.awt.Point;
 import javax.swing.JComponent;
 
 /**
@@ -17,6 +18,9 @@ public class DetailViewPanel extends javax.swing.JPanel {
      */
     public DetailViewPanel() {
         initComponents();
+        
+        /*this.setlo
+        this.setl*/
     }
     
     public javax.swing.JTextField getNameField()

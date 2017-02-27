@@ -36,9 +36,11 @@ public class ContactDialog {//implements ActionListener{
     public ContactDialog(String name){
         frame = new JFrame(name);
         frame.getContentPane().setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
       // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        frame.setSize(350, 250);
+       frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         
         detailsPanel = new DetailViewPanel();

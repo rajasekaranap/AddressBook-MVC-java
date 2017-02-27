@@ -89,19 +89,13 @@ System.out.println("after Main GUI");
     }
     
     
-    private void openAdd(){        
-         dialog =  new ContactDialog("New Entries");
-         /*dialog.getSubmitButton().setEnabled(false);
-         contactDetailsPanel = dialog.getPanel();*/
-           //dialog.getSubmitButton().setEnabled(false);
-            
-                    Boolean flag = false;
-             /*String name = contactDetailsPanel.getNameField().getText();
-             String mobile = contactDetailsPanel.getMobileField().getText();
-             String email = contactDetailsPanel.geteMailField().getText();  */
-         /*if(validate())
-                dialog.getSubmitButton().setEnabled(true);*/
-        
+    private void openAdd(){   
+       // view.getMainGUIFrame().setEnabled(false);
+       view.getMainGUIFrame().setVisible(false);
+       // view.getMainGUIFrame().disable();
+         dialog =  new ContactDialog("New Entries");    
+         dialog.getPanel().setLocation(500,500);
+         Boolean flag = false;
         choiceListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -120,6 +114,8 @@ System.out.println("after Main GUI");
              person.setData(name,mobile,email);
              daoimplement.addPerson(person);
              dialog.getFrame().dispose();
+             //view.getMainGUIFrame().enable();
+             view.getMainGUIFrame().setVisible(true);
              loadusers();
               }
                    
@@ -127,6 +123,7 @@ System.out.println("after Main GUI");
                 else if(e.getSource()== dialog.getcancelButton())
                 {
                     dialog.getFrame().dispose();
+                    view.getMainGUIFrame().setVisible(true);
                 }   
             }
             
@@ -136,6 +133,7 @@ System.out.println("after Main GUI");
         
          dialog.getSubmitButton().addActionListener(choiceListener);
          dialog.getcancelButton().addActionListener(choiceListener);
+         //view.getMainGUIFrame().setVisible(true);
     }  //method openAdd ends 
     
      public void callDAO(String operation)
@@ -190,6 +188,7 @@ System.out.println("after Main GUI");
      
     private void openEdit(){
        // edit=new EditContactDialog("Edit");
+        view.getMainGUIFrame().setVisible(false);
         dialog =  new ContactDialog("Update Entries");
         final String name=detailPanel.getNameField().getText();
         System.out.println(detailPanel.getNameField().getText());
@@ -201,26 +200,14 @@ System.out.println("after Main GUI");
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()== dialog.getSubmitButton())
                 {
-                   // System.out.println("Edit submit pressed");
-                    callDAO(name);
-                    //callEditDAO
-                    //invokeAddPersonInDAO();
-                    /*Boolean flag = false;
-                    
-                    //detailPanel.getNameField().getText();
-                    
-             String name = add.getNameField().getText();
-             String mobile = add.getMobileField().getText();
-             String email = add.geteMailField().getText();              
-             Person person = new Person();
-             person.setData(name,mobile,email);
-              daoimplement.addPerson(person);*/
-              //dialog.getFrame().dispose();
                    
+                    callDAO(name);
+                    view.getMainGUIFrame().setVisible(true);
                 }
                 else if(e.getSource()== dialog.getcancelButton())
                 {
                     dialog.getFrame().dispose();
+                     view.getMainGUIFrame().setVisible(true);
                 }   
             }
         };
@@ -240,7 +227,7 @@ System.out.println("after Main GUI");
         final String name=detailPanel.getNameField().getText();
         int reply = JOptionPane.showConfirmDialog(
                 null,
-                name +" will be Deleted permanently", 
+                " Are You Sure to remove "+name +" permanently?", 
                 "Confirm Deletion", JOptionPane.YES_NO_OPTION);
         
         if (reply == JOptionPane.YES_OPTION) {
