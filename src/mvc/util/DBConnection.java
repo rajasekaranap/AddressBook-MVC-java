@@ -12,13 +12,11 @@ package mvc.util;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 public class DBConnection {
     
      private static DBConnection dbConnect = new DBConnection();
      Connection con=null ;
-     //Statement st=null;
      private DBConnection(){}
      public static DBConnection getInstance(){
          return dbConnect;
@@ -36,26 +34,13 @@ public class DBConnection {
             String dBase = prop.getProperty("dBase");
             Class.forName(driver);
             String url = "jdbc:mysql://localhost/"+dBase+"?user="+userName+"&password="+password;
-            System.out.println(url);
             con = DriverManager.getConnection(url);
-            System.out.println(con);
-            if(!con.isClosed())
-                System.out.println("done");
-        //    st = con.createStatement();
+            /*if(!con.isClosed())
+                System.out.println("Connected to MySQL");*/
         }catch(Throwable e){
             e.printStackTrace();
         }
-        /*finally
-        {
-            try
-            {
-            con.close();
-            }
-            catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
-        }*/
+        
         return con;
     }
     

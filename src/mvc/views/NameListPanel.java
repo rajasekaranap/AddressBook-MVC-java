@@ -33,70 +33,11 @@ public class NameListPanel extends javax.swing.JPanel {
      * Creates new form ContactList
      */
     public NameListPanel() {
-       // contactList = new JList<String>(nameList);
         initComponents();
-       /* dlm = new DefaultListModel();
-        dlm.addElement("string");
-        dlm.addElement("Vedagiri");
-        contactList.setModel(dlm);
-        contactList.setSelectedIndex(0);*/
-       // fillList();
-        
-       /* contactList = new JList<String>(nameList);
-        this.add(contactList);*/
-        
-     /*   nameList = person.getNameList();
-        // namesJList = new JList<String>(items);
-          //  contentPane.add(namesJList);
-          contactList = new JList<String>(nameList);
-          this.add(contactList);*/
-        
-        
-    }/*
-    public NameListPanel(DefaultListModel<String> dlmodel)
-    {
-        System.out.println(dlmodel.getSize());
-     //initComponents();
-      //fillList(dlm);
-      int size = dlmodel.size();
-      String[] dlm = new String[size] ;
-      for(int i=0;i < size; i++)
-      {
-          System.out.print(dlmodel.get(i));
-          dlm[i] = dlmodel.get(i);
-          System.out.println(dlm[i]);
-      } 
-      initComponents();
-      
-    }*/
-    /*
-    public void fillList(DefaultListModel<String> dlmodel)
-    {
-        dlm = new DefaultListModel();
-        dlm.addElement("Sadhguru");
-        dlm.addElement("Vasu");
-        System.out.println(dlm.elementAt(1));
-        String[] stri = {"Vedagiri","TKM"};
-        System.out.println(dlmodel.firstElement());
-        System.out.println(dlmodel.getSize());
-        //dlm = new DefaultListModel();
-        //dlm = dlmodel;
-        contactList.setModel(dlmodel);
-               
     }
-     */
+  
+   
     
-    
-     /*contactList.addListSelectionListener(new ListSelectionListener() {
-
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                  String s = (contactList.getSelectedValue().toString());
-                }
-            }
-        }
-    */
     
     
     
@@ -142,8 +83,8 @@ public class NameListPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

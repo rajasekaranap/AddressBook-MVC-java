@@ -10,12 +10,12 @@ import mvc.models.Person;
 // for GUI
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JComponent;
+//import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mvc.controller.AddressBookController;
 
@@ -56,11 +56,7 @@ public class ContactDialog {//implements ActionListener{
         panel_btn.add(cancelButton);
         
         frame.getContentPane().add(panel_btn,BorderLayout.SOUTH);
-        /*
-        submitButton.addActionListener(this);
-        cancelButton .addActionListener(this);
-        */
-      //  controller = new subController();
+        
         
     }
     
@@ -90,42 +86,8 @@ public class ContactDialog {//implements ActionListener{
     //detailsPanel.getNameField();
         return detailsPanel;
     }
-  /* public JComponent getComponent()
-   {
-       return detailsPanel;
-   }*/
-    /*
-    public void actionPerformed(ActionEvent ae){
-        person  = new Person();
-        if(ae.getSource()==submitButton){
-            
-            getValues();
-            //String t = detailsPanel.getComponent().getNameField().getText();
-             Boolean flag = false;
-             String name = detailsPanel.getNameField().getText();
-             String mobile = detailsPanel.getMobileField().getText();
-             String email = detailsPanel.geteMailField().getText();   
-             System.out.println("name in add is "+name);
-             System.out.println("name in add from panel  "+detailsPanel.getNameField().getText());
-             flag = validate(); 
-             System.out.print("flag is"+flag);
-             //person = new Person();
-             person.setData(name,mobile,email);
-            if(flag)
-            {
-                frame.dispose();
-            }
-          // controller = new AddressBookController(person, "Add");
-        }
-        if (ae.getSource()==cancelButton)
-        {
-         //   System.out.println("pressed cancel)");
-            frame.dispose();
-        }
-       
-        
-    };
-    */
+ 
+    
     public void getValues()
     {
         System.out.println("name from getValues"+detailsPanel.getNameField().getText());
@@ -135,23 +97,7 @@ public class ContactDialog {//implements ActionListener{
         return person;
     }
 
-    /**
-     *validates that mobile field and name are not empty
-     * @return
-     */
-    public Boolean validate(){
-        boolean valid = false;
-        String name = detailsPanel.getNameField().getText();
-        String mobile = detailsPanel.getMobileField().getText();
-        String email = detailsPanel.geteMailField().getText();
-        if (name==null||name.equals("")||(mobile==null||mobile.equals("")))
-            JOptionPane.showMessageDialog(frame, "Fields Marked as * are Mandatory");
-        else 
-            valid = true;
-        return valid;
-                /*else if(mobile==null||mobile.equals(""))
-                    JOptionPane.showMessageDialog(frame, "Mobile No.  Reqired");*/           
-        //}
-}
+   
+   
 
 }

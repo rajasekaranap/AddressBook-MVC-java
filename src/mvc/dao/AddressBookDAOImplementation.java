@@ -20,16 +20,14 @@ import mvc.views.NameListPanel;
  * @author Admin
  */
 public class AddressBookDAOImplementation implements AddressBookDAO{
-   // DetailViewPanel detailview;
     NameListPanel list;
     Connection conn;
     Statement st;
-    public AddressBookDAOImplementation ()
+    /*public AddressBookDAOImplementation ()
     {
         conn= DBConnection.getInstance().getConnect();
-        //getAllNames();
         
-    }
+    }*/
     
     @Override
     public void addPerson(Person person) 
@@ -38,12 +36,9 @@ public class AddressBookDAOImplementation implements AddressBookDAO{
        {
           conn = DBConnection.getInstance().getConnect();
            st = conn.createStatement();
-           System.out.println("in DAOImplement addPerson");
-           // Statement stmt = conn.createStatement();
            String qry;
            qry = "insert into AddressBook values ('"+person.getName()+"','"+person.getMob()+"','"+person.getEmail()+"')";
            st.executeUpdate(qry);
-           //System.out.println("back to caller");
            conn.close();
         }
             
@@ -67,7 +62,7 @@ public class AddressBookDAOImplementation implements AddressBookDAO{
          }
          catch (SQLException e)
          {
-             
+             System.out.println(e);
          }
      }
     
@@ -78,11 +73,8 @@ public class AddressBookDAOImplementation implements AddressBookDAO{
        {
            conn = DBConnection.getInstance().getConnect();
            st = conn.createStatement();
-           System.out.println("in DAOImplement addPerson");
-           // Statement stmt = conn.createStatement();
             String qry="update AddressBook set name='"+person.getName()+"',mob='"+person.getMob()+"',email='"+person.getEmail()+"' where name='"+name+"'";
            st.executeUpdate(qry);
-           System.out.println("in Update person to be created");
            conn.close();
         }
             
@@ -106,9 +98,7 @@ public class AddressBookDAOImplementation implements AddressBookDAO{
             Statement stmt;
                  stmt = conn.createStatement();
             String qry = "select * from AddressBook order by name asc";
-                 //getting all the name in the arrayList
                  try (ResultSet rs = stmt.executeQuery(qry)) {
-                     //getting all the name in the arrayList
                      while (rs.next()){
                          String name = rs.getString(1);
                          dlm.addElement(name);
@@ -120,7 +110,7 @@ public class AddressBookDAOImplementation implements AddressBookDAO{
            conn.close();
         }
            catch (SQLException ex) {
-                   System.out.println("NO Records/Cannot retrieve records");
+                   System.out.println(ex+"NO Records/Cannot retrieve records");
                    }
            
         return dlm;
@@ -135,11 +125,9 @@ public class AddressBookDAOImplementation implements AddressBookDAO{
             Statement stmt;
             stmt = conn.createStatement();
             String qry = "select * from AddressBook where name = '"+selectedName+"'";
-            System.out.println(qry);
             ResultSet rs;
             rs = stmt.executeQuery(qry);
             while(rs.next()){
-            //geteMailField()
              detailPanel.setName(rs.getString("name"));
              detailPanel.seteMail(rs.getString("email"));
              detailPanel.setMobile(rs.getString("mob"));

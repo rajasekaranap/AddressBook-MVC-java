@@ -9,7 +9,7 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author Admin
+ * @author Bharathy KGiSL
  */
 public class DetailViewPanel extends javax.swing.JPanel {
 
@@ -19,8 +19,6 @@ public class DetailViewPanel extends javax.swing.JPanel {
     public DetailViewPanel() {
         initComponents();
         
-        /*this.setlo
-        this.setl*/
     }
     
     public javax.swing.JTextField getNameField()
@@ -43,17 +41,14 @@ public class DetailViewPanel extends javax.swing.JPanel {
     }
       public void setName(String name)
       {
-          //jTextField.setText(str) 
           txt_name.setText(name);
       }
        public void setMobile(String mobile)
       {
-          //jTextField.setText(str) 
           txt_mobileno.setText(mobile);
       }
         public void seteMail(String email)
       {
-          //jTextField.setText(str) 
           txt_email.setText(email);
       }
         public JComponent getComponent() 

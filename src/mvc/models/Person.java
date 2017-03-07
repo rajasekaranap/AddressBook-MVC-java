@@ -12,7 +12,7 @@ public class Person {
     private String name;
     private String mob;
     private String email;
-    private  String[] nameList;
+    
     
    /* public User(){
         x=0;
@@ -51,11 +51,5 @@ public class Person {
     }
     
  
-public String[] getNameList() {
-        return nameList;
-    }
- 
-    public void setNameList(String[] nameList) {
-        this.nameList = nameList;
-    }
+
 }

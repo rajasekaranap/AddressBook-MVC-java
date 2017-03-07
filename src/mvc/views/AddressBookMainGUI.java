@@ -5,21 +5,21 @@
 package mvc.views;
 
 //vo object
-import mvc.models.Person;
+//import mvc.models.Person;
 
-import mvc.controller.AddressBookController;
+//import mvc.controller.AddressBookController;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
+//import java.awt.Component;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.ListSelectionModel;
+//import javax.swing.ListSelectionModel;
 
 /**
  *
@@ -37,11 +37,10 @@ public class AddressBookMainGUI {
     
     
     
-     private ContactDialog add;
+     //private ContactDialog add;
      
      
-   //private
-        //    Person person = new Person();
+  
         
     public AddressBookMainGUI(String text){
         frame = new JFrame("Address Book");
