@@ -8,7 +8,7 @@ To run the project follow the instructions given below:
 	fieldname	type
 	
 	name		varchar2(20)
-	mob		varchar2(15)
+	mob		    varchar2(15)
 	email		varchar2(50)
 
 2.Open the project in Netbeans IDE.
