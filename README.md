@@ -3,7 +3,7 @@ Address Book Project in java with MVC, |Singleton and DAO Design Pattern
 
 To run the project follow the instructions given below:
 
-1.Create a table 'addbook' with the following structure in ORACLE
+1.Create a table 'addbook' with the following structure in MySQL
 
 	fieldname	type
 	
