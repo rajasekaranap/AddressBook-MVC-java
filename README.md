@@ -9,7 +9,7 @@ To run the project follow the instructions given below:
 	
 	name		    varchar2(20)
 	mob		    varchar2(15)
-	email		   varchar2(50)
+	email		    varchar2(50)
 
 2.Open the project in Netbeans IDE.
 
