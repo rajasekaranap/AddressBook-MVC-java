@@ -28,13 +28,14 @@ public class DBConnection {
             prop.load(file);
         
      
-            String driver = prop.getProperty("driver");
+            //String driver = prop.getProperty("driver");
+            String url = prop.getProperty("url");
             String userName = prop.getProperty("userName");
             String password = prop.getProperty("password");
             String dBase = prop.getProperty("dBase");
-            Class.forName(driver);
-            String url = "jdbc:mysql://localhost/"+dBase+"?user="+userName+"&password="+password;
-            con = DriverManager.getConnection(url);
+            //Class.forName(driver);
+            String connectString = url+dBase+"?user="+userName+"&password="+password;
+            con = DriverManager.getConnection(connectString);
             /*if(!con.isClosed())
                 System.out.println("Connected to MySQL");*/
         }catch(Throwable e){
