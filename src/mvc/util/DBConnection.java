@@ -29,22 +29,19 @@ public class DBConnection {
         
      
             //String driver = prop.getProperty("driver");
-            String url = prop.getProperty("url");
-            String userName = prop.getProperty("userName");
-            String password = prop.getProperty("password");
-            String dBase = prop.getProperty("dBase");
-            /*
-            //String driver = prop.getProperty("driver");
             String dbUrl = prop.getProperty("url");
             String userName = prop.getProperty("userName");
             String password = prop.getProperty("password");
             String dBase = prop.getProperty("dBase");
             String url = dbUrl + dBase;
-            */
+            
             
             //Class.forName(driver);
-            String connectString = url+dBase+"?user="+userName+"&password="+password;
-            con = DriverManager.getConnection(connectString);
+            //String connectString = url+dBase+"?user="+userName+"&password="+password;
+            
+            
+             con = DriverManager.getConnection(url,userName,password);
+            
             /*if(!con.isClosed())
                 System.out.println("Connected to MySQL");*/
         }catch(Throwable e){

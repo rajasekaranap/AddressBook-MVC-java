@@ -1,9 +1,9 @@
 Address Book Project in java with MVC, |Singleton and DAO Design Pattern
 
 
-To run the project follow the instructions given below:
+Please ensure the following for the proper execution of the project.
 
-1.Create a table 'addressbook' with the following structure in MySQL
+1. Create a table 'addressbook' with the following structure in MySQL
 
 	Fieldname         Type
 	
@@ -11,8 +11,12 @@ To run the project follow the instructions given below:
 	mob		    varchar2(15)
 	email		    varchar2(50)
 
-2.Open the project in Netbeans IDE.
+2. Open the project in Netbeans IDE.
 
-3.Resolve the jar file issues if any. (MySQL Driver)
+3. Ensure  that **mysql-connector-java-5.1.42-bin.jar** 
 
-4.Change the  file dbconfig.properties as per your database name ,user name and password
+	a) in the directory C:\Program Files\Java\jdk1.8.0_131\jre\lib\ext 
+		**or** 
+	b)added  to the library folder of the project by selecting "Add JAR/Folder"
+
+4. Change the  file dbconfig.properties as per your database name ,user name and password
