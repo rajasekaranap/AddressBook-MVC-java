@@ -64,7 +64,7 @@ public class AddressBookDAOImplementation implements AddressBookDAO {
         try {
             conn = DBConnection.getInstance().getConnect();
             st = conn.createStatement();
-            String qry = "update addressbookmvc set name='" + person.getName() + "',mob='" + person.getMob() + "',email='" + person.getEmail() + "' where name='" + name + "'";
+            String qry = "update addressbookmvc set name='" + person.getName() + "',mob='" + person.getMob() + "',email='" + person.getEmail() + "',address='" + person.getAddress()+"' where name='" + name + "'";
             st.executeUpdate(qry);
             conn.close();
         } catch (SQLException e) {
@@ -116,7 +116,7 @@ public class AddressBookDAOImplementation implements AddressBookDAO {
                 detailPanel.setName(rs.getString("name"));
                 detailPanel.seteMail(rs.getString("email"));
                 detailPanel.setMobile(rs.getString("mob"));
-
+                detailPanel.setAddress(rs.getString("address"));
             }
             conn.close();
         } catch (SQLException ex) {

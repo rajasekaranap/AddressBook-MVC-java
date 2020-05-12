@@ -46,8 +46,10 @@ public class AddressBookController {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 if(e.getSource()== view.getAdd())
                 {
+         
                        
                    view.getMainGUIFrame().disable();
                         openAdd();
@@ -58,13 +60,16 @@ public class AddressBookController {
                     openEdit();
                 else if(e.getSource() == view.getDelete())
                     openDelete();
+                else if(e.getSource() == view.getQuit())
+                    System.exit(0);
+                   
             }
         };
         
         view.getAdd().addActionListener(actionListener);
         view.getDelete().addActionListener(actionListener);
         view.getEdit().addActionListener(actionListener);
-      
+        view.getQuit().addActionListener(actionListener);
     }
     
     

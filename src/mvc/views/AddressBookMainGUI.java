@@ -34,7 +34,7 @@ public class AddressBookMainGUI {
     private JButton btn_edit;
     private JButton btn_delete;
     private JPanel panel_btn;
-    
+    private JButton btn_quit;
     
     
      //private ContactDialog add;
@@ -77,7 +77,7 @@ public class AddressBookMainGUI {
         frame.getContentPane().add(detailsPanel,BorderLayout.CENTER);
         
         panel_btn= new JPanel();
-        panel_btn.setLayout(new GridLayout(1, 3));
+        panel_btn.setLayout(new GridLayout(1, 4));
         
         btn_add = new JButton("Add");
         panel_btn.add(btn_add);
@@ -87,6 +87,10 @@ public class AddressBookMainGUI {
         
         btn_delete = new JButton("Delete");
         panel_btn.add(btn_delete);
+        
+        btn_quit = new JButton("Quit");
+        panel_btn.add(btn_quit);
+        
         
         frame.getContentPane().add(panel_btn,BorderLayout.SOUTH);
     }
@@ -133,6 +137,9 @@ public class AddressBookMainGUI {
        // label.setText(text);
     }
     
+    public JButton getQuit(){
+        return btn_quit;
+    }
     /*
   public void  populateList(String[] namesList){
       JList namesJList;
