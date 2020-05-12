@@ -33,8 +33,8 @@ public class DBConnection {
             String userName = prop.getProperty("userName");
             String password = prop.getProperty("password");
             String dBase = prop.getProperty("dBase");
-            String url = dbUrl + dBase;
-            
+            //String url = dbUrl + dBase;
+            String url = dbUrl;
             
             //Class.forName(driver);
             //String connectString = url+dBase+"?user="+userName+"&password="+password;

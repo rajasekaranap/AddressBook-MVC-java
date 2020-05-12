@@ -19,126 +19,109 @@ import mvc.views.NameListPanel;
  *
  * @author Admin
  */
-public class AddressBookDAOImplementation implements AddressBookDAO{
+public class AddressBookDAOImplementation implements AddressBookDAO {
+
     NameListPanel list;
     Connection conn;
     Statement st;
+
     /*public AddressBookDAOImplementation ()
     {
         conn= DBConnection.getInstance().getConnect();
         
     }*/
-    
+
     @Override
-    public void addPerson(Person person) 
-    {   
-       try
-       {
-          conn = DBConnection.getInstance().getConnect();
-           st = conn.createStatement();
-           String qry;
-           qry = "insert into AddressBook values ('"+person.getName()+"','"+person.getMob()+"','"+person.getEmail()+"')";
-           st.executeUpdate(qry);
-           conn.close();
+    public void addPerson(Person person) {
+        try {
+            conn = DBConnection.getInstance().getConnect();
+            st = conn.createStatement();
+            String qry;
+            qry = "insert into addressbookmvc values ('" + person.getName() + "','" + person.getMob() + "','" + person.getEmail() + "','" + person.getAddress() + "')";
+            st.executeUpdate(qry);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
         }
-            
-       catch(SQLException e)
-       {
-           System.out.println(e);
-       }
-           
+
     }
-    
+
     @Override
-     public void removePerson(String name)
-     {
-         try
-         {
-           conn = DBConnection.getInstance().getConnect();
-           st = conn.createStatement();
-           String qry="delete from AddressBook where name='"+name+"'";
-           st.executeUpdate(qry);
-           conn.close();
-         }
-         catch (SQLException e)
-         {
-             System.out.println(e);
-         }
-     }
-    
-    @Override
-     public void updatePerson(Person person,String name)
-     {
-         try
-       {
-           conn = DBConnection.getInstance().getConnect();
-           st = conn.createStatement();
-            String qry="update AddressBook set name='"+person.getName()+"',mob='"+person.getMob()+"',email='"+person.getEmail()+"' where name='"+name+"'";
-           st.executeUpdate(qry);
-           conn.close();
+    public void removePerson(String name) {
+        try {
+            conn = DBConnection.getInstance().getConnect();
+            st = conn.createStatement();
+            String qry = "delete from addressbookmvc where name='" + name + "'";
+            st.executeUpdate(qry);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
         }
-            
-       catch(SQLException e)
-       {
-          System.out.println(e); 
-       }
-     }
-    
+    }
+
+    @Override
+    public void updatePerson(Person person, String name) {
+        try {
+            conn = DBConnection.getInstance().getConnect();
+            st = conn.createStatement();
+            String qry = "update addressbookmvc set name='" + person.getName() + "',mob='" + person.getMob() + "',email='" + person.getEmail() + "' where name='" + name + "'";
+            st.executeUpdate(qry);
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     /**
-     *to display all names to select
+     * to display all names to select
+     *
      * @param namePanel
-     * @return 
+     * @return
      */
     @Override
-    public DefaultListModel getAllNames(NameListPanel namePanel) 
-    {
-             DefaultListModel<String> dlm = new DefaultListModel<>();
-            try {
-         conn = DBConnection.getInstance().getConnect();
-            Statement stmt;
-                 stmt = conn.createStatement();
-            String qry = "select * from AddressBook order by name asc";
-                 try (ResultSet rs = stmt.executeQuery(qry)) {
-                     while (rs.next()){
-                         String name = rs.getString(1);
-                         dlm.addElement(name);
-                     }
-                     
-                     namePanel.getJList().setModel(dlm);
-                 }
-            stmt.close();
-           conn.close();
-        }
-           catch (SQLException ex) {
-                   System.out.println(ex+"NO Records/Cannot retrieve records");
-                   }
-           
-        return dlm;
-    }
-    
-    
-    @Override
-    public void getSelectedName(DetailViewPanel detailPanel,String selectedName)
-    {
+    public DefaultListModel getAllNames(NameListPanel namePanel) {
+        DefaultListModel<String> dlm = new DefaultListModel<>();
         try {
             conn = DBConnection.getInstance().getConnect();
             Statement stmt;
             stmt = conn.createStatement();
-            String qry = "select * from AddressBook where name = '"+selectedName+"'";
+            String qry = "select * from addressbookmvc order by name asc";
+            try (ResultSet rs = stmt.executeQuery(qry)) {
+                while (rs.next()) {
+                    String name = rs.getString(1);
+                    dlm.addElement(name);
+                }
+
+                namePanel.getJList().setModel(dlm);
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex + "NO Records/Cannot retrieve records");
+        }
+
+        return dlm;
+    }
+
+    @Override
+    public void getSelectedName(DetailViewPanel detailPanel, String selectedName) {
+        try {
+            conn = DBConnection.getInstance().getConnect();
+            Statement stmt;
+            stmt = conn.createStatement();
+            String qry = "select * from addressbookmvc where name = '" + selectedName + "'";
             ResultSet rs;
             rs = stmt.executeQuery(qry);
-            while(rs.next()){
-             detailPanel.setName(rs.getString("name"));
-             detailPanel.seteMail(rs.getString("email"));
-             detailPanel.setMobile(rs.getString("mob"));
-             
-           }
+            while (rs.next()) {
+                detailPanel.setName(rs.getString("name"));
+                detailPanel.seteMail(rs.getString("email"));
+                detailPanel.setMobile(rs.getString("mob"));
+
+            }
             conn.close();
+        } catch (SQLException ex) {
+            System.out.println("NO Records/Cannot retrieve records");
         }
-         catch (SQLException ex) {
-                   System.out.println("NO Records/Cannot retrieve records");
-                   }
     }
-           
-    
+
 }

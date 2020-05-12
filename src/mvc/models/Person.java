@@ -12,7 +12,7 @@ public class Person {
     private String name;
     private String mob;
     private String email;
-    
+    private String address;
     
    /* public User(){
         x=0;
@@ -44,11 +44,17 @@ public class Person {
         return this.email; 
    }
     
-    public void setData(String name, String mob,String email){
+    public void setData(String name, String mob,String email,String address){
         this.name = name;
         this.mob = mob;
         this.email = email;
+        this.address = address;
     }
+
+    public String getAddress() {
+        return address;
+    }
+    
     
  
 
